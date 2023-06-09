@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+ 
 namespace MediaPlayer
 {
     public partial class Form1 : Form
@@ -57,7 +57,9 @@ namespace MediaPlayer
         private void PlayListChanged(object sender, EventArgs e)
         {
             currentFile=PlayList.SelectedIndex;
+			
             PlayFile(PlayList.SelectedItem.ToString());
+			
             ShowFileName(fileName);
         }
 
@@ -119,7 +121,8 @@ namespace MediaPlayer
             }
             else if (e.newState == 8)
             {
-                // media has ended here
+                // media playback has ended
+				
                 if (currentFile >= filteredFiles.Count() - 1)
                 {
                     currentFile = 0;
